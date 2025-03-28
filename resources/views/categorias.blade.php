@@ -8,10 +8,10 @@
 
         @foreach($categorias as $categoria)
 
-            <div class="bg-gray-200 hover:bg-gray-300 w-[300px] h-[200px] p-4 rounded cursor-pointer">
+            <a href="{{ route('subcategorias.index', ['idCategoria' => $categoria->id_categoria ]) }}" class="bg-gray-200 hover:bg-gray-300 w-[300px] h-[200px] p-4 rounded cursor-pointer">
                 <img class="h-[130px] w-full object-cover rounded" src="{{ $categoria->imagen_url }}" alt="">
                 <p class="text-center mt-3 font-medium text-gray-800">{{ $categoria->nombre }}</p>
-            </div>
+            </a>
 
         @endforeach
 
