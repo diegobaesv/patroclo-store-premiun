@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Patroclo Store</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
@@ -22,6 +23,7 @@
 <script>
 
     const KEY_CACHE_SESSION = 'KEY_CACHE_SESSION';
+    const CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     function generateRandomString(){
         const chars = 'ABCDEFGHIJQLMNOPQRSTVUWXYZ0123456789abcdefghijklmnsrtuvwxyz';
@@ -43,8 +45,21 @@
         }
     }
 
-    function addCarritoCompras(idProducto) {
+    async function addCarritoCompras(idProducto) {
         console.log('idProducto',idProducto);
+
+        const sessionId=localStorage.getItem(KEY_CACHE_SESSION);
+
+        const result = await fetch('/carrito-compras/nuevo-producto', {
+            method: 'POST',
+            body: JSON.stringify({ idProducto, sessionId }),
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': CSRF_TOKEN
+            }
+        });
+        const data = await result.json();
+        console.log('data',data);
     }
 
     loadCacheSession();
