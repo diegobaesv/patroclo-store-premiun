@@ -14,7 +14,10 @@
                 <p class="text-center mt-3 font-medium text-green-800">Precio: ${{ $producto->precio_dolares }}</p>
                 <p class="text-center mt-3 font-medium text-red-800">Stock: {{ $producto->stock }}</p>
 
-                <button class="w-full p-2 bg-green-700 hover:bg-green-800 text-white rounded cursor-pointer">+ Añadir al carrito</button>
+                <button 
+                    class="w-full p-2 bg-green-700 hover:bg-green-800 text-white rounded cursor-pointer"
+                    onclick="addCarritoCompras({{ $producto->id_producto }})"
+                    >+ Añadir al carrito</button>
             </div>
 
         @endforeach

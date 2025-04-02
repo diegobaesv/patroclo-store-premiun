@@ -43,10 +43,11 @@
         }
     }
 
+    function addCarritoCompras(idProducto) {
+        console.log('idProducto',idProducto);
+    }
+
     loadCacheSession();
-
-    //console.log('generateRandomString',generateRandomString());
-
 
 </script>
 </html>
