@@ -64,5 +64,11 @@
 
     loadCacheSession();
 
+
+    function goToCarritoCompras(){
+        console.log('goToCarritoCompras');
+        window.location.href = `/carrito-compras/${localStorage.getItem(KEY_CACHE_SESSION)}`
+    }
+
 </script>
 </html>

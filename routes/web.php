@@ -12,3 +12,4 @@ Route::get('/categorias', [CategoriaController::class,'index'])->name('categoria
 Route::get('/categorias/{idCategoria}/subcategorias',[SubcategoriaController::class,'index'])->name('subcategorias.index');
 Route::get('/subcategorias/{idSubcategoria}/productos',[ProductoController::class,'index'])->name('productos.index');
 Route::post('/carrito-compras/nuevo-producto',[CarritoCompraController::class,'addItem'])->name('carrito-compras.additem');
+Route::get('/carrito-compras/{idSession}',[CarritoCompraController::class,'index'])->name('carrito-compras.index');

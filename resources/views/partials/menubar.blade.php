@@ -10,7 +10,7 @@
             Marcas
         </div>
     </div>
-    <div class="hover:bg-orange-600 p-1 rounded cursor-pointer mr-2 border border-white">
+    <button onclick="goToCarritoCompras()" class="hover:bg-orange-600 p-1 rounded cursor-pointer mr-2 border border-white">
         Carrito
-    </div>
+    </button>
 </div>
